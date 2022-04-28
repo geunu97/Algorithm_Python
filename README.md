@@ -1,10 +1,10 @@
 <h2 align="center">알고리즘 문제 풀이(with Python)</h1>
 
-#### 📁 <a href="https://github.com/geunu97/Algorithm_Python" title="알고리즘" >백준</a>
+#### 📁 <a href="https://github.com/geunu97/Algorithm_Python/tree/master/%EB%B0%B1%EC%A4%80" title="알고리즘" >백준</a>
 
-#### 📁 <a href="https://github.com/geunu97/Algorithm_Python" title="알고리즘" >프로그래머스</a>
+#### 📁 <a href="https://github.com/geunu97/Algorithm_Python/tree/master/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4" title="알고리즘" >프로그래머스</a>
 
-#### 📁 <a href="https://github.com/geunu97/Algorithm_Python" title="알고리즘" >핵심 알고리즘</a>
+#### 📁 <a href="https://github.com/geunu97/Algorithm_Python/tree/master/%ED%95%B5%EC%8B%AC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" title="알고리즘" >핵심 알고리즘</a>
 
 <hr>
 
