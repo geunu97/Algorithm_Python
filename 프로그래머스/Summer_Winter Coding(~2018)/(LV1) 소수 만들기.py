@@ -1,5 +1,7 @@
 #LV1 소수 만들기
 
+#1번째 풀이
+'''
 sosu_list = [-1] * 3000
 
 for i in range(2,len(sosu_list)):
@@ -22,13 +24,35 @@ def solution(nums):
 
 
 print(solution([1,2,3,4]))
-
-
+'''
 #Point
 #반복문 3개로 3개 선택하기 (완전탐색) (아니면 itertools - combinations 사용해도됨)
 #소수찾기 - 에라토스테네스의 체    
 
 
+#2번째 풀이
+
+from itertools import combinations
+
+def sosu_(num):
+    if num == 1 or num == 0:
+        return False
+    
+    for i in range(2, int(num**0.5)+1):
+	    if num % i == 0: 
+	        return False
+    
+    return True
+
+def solution(nums):
+    result = 0
+    
+    num = list(combinations(nums,3))
+    for i in num:
+        if sosu_(sum(i)):
+            result += 1
+    
+    return result
 
 
 
