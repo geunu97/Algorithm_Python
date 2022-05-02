@@ -3,6 +3,7 @@
 # n개의 탑에 서로 연결된 전선들이 주어진다. 이 때 특정번호와 특정번호가 연결된 전선1개만을 제거할 때 전선이 연결된 것끼리 2분할로 나누어진다. 
 # 특정 전선1개를 잘 선택해서 제거하여 1분할 탑의 개수와 2분할 탑의 개수 차이가 최소가 되게 구해라  
 
+'''
 from collections import deque
 
 def dfs(num,visited,graph):
@@ -38,8 +39,37 @@ def solution(n, wires):
 
 print(solution(9,[[1,3],[2,3],[3,4],[4,5],[4,6],[4,7],[7,8],[7,9]]))
 print(solution(4,[[1,2],[2,3],[3,4]]))
-
+'''
 #Point
 #큐 & dfs(연결된 부분 찾기) 문제
 #큐를 사용해서 1개씩 모두 제거하는 포인트 중요!!!
 
+
+#2번째 풀기
+from collections import deque
+
+
+def dfs(num,visited,graph):
+    for j in graph[num]:
+        if visited[j] == 0:
+            visited[j] = 1
+            dfs(j,visited,graph)
+    return visited.count(1)
+
+def solution(n, wires):
+    answer = []
+    wires = deque(wires)
+    
+    for i in range(len(wires)):
+        l = wires.popleft()
+        graph = [[] for _ in range(n+1)]
+        for a,b in wires:
+            graph[a].append(b)
+            graph[b].append(a)
+        
+        visited = [0] * (n+1)
+        visited[1] = 1
+        answer.append(abs(dfs(1,visited,graph) - abs(dfs(1,visited,graph) - n)))
+        wires.append(l)
+    
+    return min(answer)
