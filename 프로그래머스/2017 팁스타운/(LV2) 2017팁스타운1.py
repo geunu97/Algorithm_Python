@@ -1,5 +1,6 @@
 #LV2 짝지어 제거하기
 
+'''
 def solution(s):
     s = list(s)
     stack = [0]
@@ -17,7 +18,7 @@ def solution(s):
         return 0 
 
 print(solution('baabaa'))
-
+'''
 
 
 #Point
@@ -25,5 +26,19 @@ print(solution('baabaa'))
 #같은거2개 찾을 때마다 제거해주고 다시 첫 번째 원소로 돌아가서 탐색하면 시간초과!!!
 
 
+#2번째 풀기
+def solution(s):
+    stack=[s[0]]
+    
+    for i in range(1,len(s)):
+        if len(stack) > 0 and stack[-1] == s[i]:
+            stack.pop()
+        else:
+            stack.append(s[i])
+            
+    if len(stack) == 0:
+        return 1
+    else:
+        return 0
 
 
