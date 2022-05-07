@@ -23,6 +23,26 @@ print(solution([5,1,3,7],[2,2,6,8]))
 
 #Point
 
-#     B승                         B승        B승              
+#     B승            B패          B승        B승              
 #A [7,5,3,1]    -> [7,5,3]  ->  [7,5,3]  -> [7,5]  -> [7]  
 #B [8,6,2,2]       [8,6,2]      [8,6]       [8]
+
+#2번째 풀기
+def solution(A, B):
+    answer = 0
+    A.sort()      #A를 내림차순 정렬, B를 내림차순 정렬
+    A.reverse()
+    B.sort()
+    B.reverse()     
+    
+    
+    while True:
+        if len(B) == 0:
+            break
+        
+        if B[-1]>A[-1]:
+            answer+=1
+            A.pop()
+        B.pop()
+    
+    return answer
