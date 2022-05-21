@@ -1,5 +1,5 @@
 #LV2 삼각달팽이
-
+'''
 def solution(n):
     maps = [[0]*n for _ in range(n)]   #2차원 그래프 그리기
     
@@ -28,12 +28,85 @@ def solution(n):
 
 
 print(solution(4))
+'''
+
+#2번째 풀이
+
+def solution(n):
+    #삼각형 그래프 초기화
+    number = 1
+    graph = []
+    for i in range(n):
+        graph.append([0] * number)
+        number += 1
+    
+    #3가지 방향 좌표
+    top_bottom = [1,0]
+    left_right = [0,1]
+    bottom_top = [-1,-1]
+    
+    number = 1
+    count = 0   
+    nn = n
+    
+    x = -1
+    y = 0
+    
+    while True:
+        
+        for _ in range(n):
+            x = x + top_bottom[0]
+            y = y + top_bottom[1]
+            
+            graph[x][y] = number
+            number += 1
+            
+        count += 1
+        n -= 1
+            
+        if count == nn:
+            break
+
+        for _ in range(n):
+            x = x + left_right[0]
+            y = y + left_right[1]   
+            
+            graph[x][y] = number
+            number += 1
+            
+        count += 1
+        n -= 1
+
+        if count == nn:
+            break
+            
+        for _ in range(n):
+            x = x + bottom_top[0]
+            y = y + bottom_top[1]  
+        
+            graph[x][y] = number
+            number += 1
+            
+        count += 1
+        n -= 1
+        
+        if count == nn:
+            break
+    
+    answer = []
+    for i in graph:
+        for j in i :
+            answer.append(j)
+    
+    return answer
 
 
+#Point (시물레이션처럼 풀기)
 
-# https://blog.naver.com/handuelly/222157046417   (노트에 좌표 삼각형 그리기)
+#시작좌표 설정
+#3가지 방향 설정 [1,0], [0,1], [-1,-1]
+#한 방향당 n번씩 돌고, 방향 전환 후, n-1해주기  (4번..3번..2번..1번)
+#한 방향 돌때마다 count+1해주고, 총 방향을 n번 만큼 실행 된다
 
-#Point
-#삼각형을 직각삼각형으로 만든다.  -> 3가지 방향이 나온다
-#3가지 방향에 대한 좌표 이용
+
 
