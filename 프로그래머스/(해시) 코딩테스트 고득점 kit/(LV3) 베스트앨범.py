@@ -1,5 +1,5 @@
 #LV3 베스트앨범
-
+'''
 def solution(genres, plays):
     dictionary = {}
     for i in range(len(genres)):
@@ -24,7 +24,35 @@ def solution(genres, plays):
                 answer.append(j[1][1])
     
     return answer
-
+'''
 
 #Point
 #해쉬 문제 (딕셔너리)
+
+
+#2번째 풀이
+def solution(genres, plays):
+    dictionary = {}
+    for i in range(len(genres)):
+        if genres[i] in dictionary:
+            dictionary[genres[i]][0] += plays[i]
+            dictionary[genres[i]].append([i,plays[i]])
+        
+        else:
+            dictionary[genres[i]] = [plays[i], [i, plays[i]]]                 #[총 재생횟수, [고유번호, 각 재생횟수]
+        
+        
+    
+    tuple = sorted(dictionary.items(), key=lambda x: (-x[1][0]))             #딕셔너리 정렬하면, 리스트 튜플 형태로 변환된다
+    #print(tuple)
+    answer = []
+    for i in tuple:
+        i = i[1][1:]
+        i = sorted(i, key=lambda x: (-x[1], x[0]))[:2]
+        
+        #print(i)
+        for j in i:
+            answer.append(j[0])
+            
+
+    return answer
