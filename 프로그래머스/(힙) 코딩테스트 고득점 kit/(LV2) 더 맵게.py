@@ -27,3 +27,26 @@ def solution(scoville, K):
 
 #Point (힙 문제)
 #이전에 풀었던 문제와 비슷   (힙에서 2개 빼고, 하나로 합쳐서 다시 넣는 문제)
+
+#2번쨰 풀이
+import heapq
+
+def solution(scoville, K):
+    heap = []
+    for i in scoville:
+        heapq.heappush(heap,i)
+    
+    answer = 0
+    while True:
+        value1 = heapq.heappop(heap)
+        value2 = value1 + (heapq.heappop(heap) * 2)
+        heapq.heappush(heap,value2)
+        answer += 1
+        
+        if heap[0] >= K:
+            break
+        
+        if len(heap) == 1:
+            return -1
+    
+    return answer
