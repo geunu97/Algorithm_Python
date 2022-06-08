@@ -21,6 +21,27 @@ def solution(people, limit):
     return answer
 
 
-#Point
-#순서대로 2쌍 잡지말고, 맨처음 맨끝으로 2쌍 잡았어야 됨 
+
+
+#2번쨰 풀이
+def solution(people, limit):
+    people = sorted(people)
+    
+    left = 0
+    right = len(people)-1
+    answer = 0
+    
+    while left <= right:
+        if people[left] + people[right] <= limit:
+            left += 1
+            right -= 1
+        else:
+            right -= 1
+        
+        answer += 1    
+        
+    return answer
+    
+    #투 포인터
+    #정렬 후에 => 가장 작은 수, 가장 큰 수 조합   => 무게보다 작으면 둘 다 태우고, 무게보다 크면 큰 수만 태우기
 
