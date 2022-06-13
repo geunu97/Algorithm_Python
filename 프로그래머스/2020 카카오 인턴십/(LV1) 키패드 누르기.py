@@ -82,3 +82,91 @@ def solution(numbers, hand):
                     right = [3,1]
                     
     return answer
+
+
+#2번째 풀이
+def solution(numbers, hand):
+    answer = ""
+    left_hand = [3,0]
+    right_hand = [3,2]
+    for i in numbers:
+        if i == 1 :
+            answer += 'L'
+            left_hand = [0,0]
+        elif i == 4:
+            answer += 'L'
+            left_hand = [1,0]
+        elif i == 7:
+            answer += 'L'
+            left_hand = [2,0]
+        elif i == 3:
+            answer += 'R'
+            right_hand = [0,2]
+        elif i == 6:
+            answer += 'R'
+            right_hand = [1,2]
+        elif i == 9:
+            answer += 'R'
+            right_hand = [2,2]
+        elif i == 2:
+            if abs(left_hand[0] - 0) + abs(left_hand[1] - 1) == abs(right_hand[0] - 0) + abs(right_hand[1] - 1):
+                if hand == "right":
+                    answer += 'R'
+                    right_hand = [0,1]
+                else:
+                    answer += 'L'
+                    left_hand = [0,1]
+            elif abs(left_hand[0] - 0) + abs(left_hand[1] - 1) > abs(right_hand[0] - 0) + abs(right_hand[1] - 1):
+                answer += 'R'
+                right_hand = [0,1]
+            else:
+                answer += 'L'
+                left_hand = [0,1]
+                
+        elif i == 5:
+            print(left_hand, right_hand)
+            if abs(left_hand[0] - 1) + abs(left_hand[1] - 1) == abs(right_hand[0] - 1) + abs(right_hand[1] - 1):
+                if hand == "right":
+                    answer += 'R'
+                    right_hand = [1,1]
+                else:
+                    answer += 'L'
+                    left_hand = [1,1]
+            elif abs(left_hand[0] - 1) + abs(left_hand[1] - 1) > abs(right_hand[0] - 1) + abs(right_hand[1] - 1):
+                answer += 'R'
+                right_hand = [1,1]
+            else:
+                answer += 'L'
+                left_hand = [1,1]
+                
+        elif i == 8:
+            if abs(left_hand[0] - 2) + abs(left_hand[1] - 1) == abs(right_hand[0] - 2) + abs(right_hand[1] - 1):
+                if hand == "right":
+                    answer += 'R'
+                    right_hand = [2,1]
+                else:
+                    answer += 'L'
+                    left_hand = [2,1]
+            elif abs(left_hand[0] - 2) + abs(left_hand[1] - 1) > abs(right_hand[0] - 2) + abs(right_hand[1] - 1):
+                answer += 'R'
+                right_hand = [2,1]
+            else:
+                answer += 'L'
+                left_hand = [2,1]
+        elif i == 0:
+            if abs(left_hand[0] - 3) + abs(left_hand[1] - 1) == abs(right_hand[0] - 3) + abs(right_hand[1] - 1):
+                if hand == "right":
+                    answer += 'R'
+                    right_hand = [3,1]
+                else:
+                    answer += 'L'
+                    left_hand = [3,1]
+            elif abs(left_hand[0] - 3) + abs(left_hand[1] - 1) > abs(right_hand[0] - 3) + abs(right_hand[1] - 1):
+                answer += 'R'
+                right_hand = [3,1]
+            else:
+                answer += 'L'
+                left_hand = [3,1]
+
+
+    return answer
