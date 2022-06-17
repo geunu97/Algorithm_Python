@@ -36,3 +36,36 @@ def solution(dartResult):
     answer[2] = value   #끝처리
         
     return sum(answer)
+
+
+#2번째 풀이
+def solution(dartResult):
+    score = []
+    index = -1
+    number = 0
+    for i in range(len(dartResult)):
+        if dartResult[i].isdigit():
+            index += 1
+            if dartResult[i-1] == '1' and dartResult[i] == '0':
+                number = 10
+            else:
+                number = int(dartResult[i])
+                 
+        elif dartResult[i] == 'S':
+            score.append(number) 
+        
+        elif dartResult[i] == 'D':
+            score.append(number**2)
+            
+        elif dartResult[i] == 'T':
+            score.append(number**3)
+        
+        elif dartResult[i] == '*':
+            score[index] = score[index] * 2
+            if index != 0:
+                score[index-1] = score[index-1] * 2
+        
+        elif dartResult[i] == '#':
+            score[index] = -score[index]
+        
+    return sum(score)
