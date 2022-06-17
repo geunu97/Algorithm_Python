@@ -1,15 +1,7 @@
 <h2 align="center">알고리즘 문제 풀이(with Python)</h1>
 
-#### 📁 <a href="https://github.com/geunu97/Algorithm_Python/tree/master/%EB%B0%B1%EC%A4%80" title="알고리즘" >백준</a>
+#### 👉 소스코드는 <a href="https://github.com/geunu97/Algorithm_Python">Github</a>
 
-#### 📁 <a href="https://github.com/geunu97/Algorithm_Python/tree/master/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4" title="알고리즘" >프로그래머스</a>
+#### 👉 해설 풀이는 <a href="https://geunu97.tistory.com/category/Coding%20Test">블로그</a> & 개인 노트
 
-#### 📁 <a href="https://github.com/geunu97/Algorithm_Python/tree/master/%ED%95%B5%EC%8B%AC%20%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" title="알고리즘" >핵심 알고리즘</a>
-
-<hr>
-
-#### 👉 소스코드 및 간단한 메모는 Github 활용
-
-#### 👉 소스코드의 풀이는 개인 노트 활용
-
-#### 👉 알고리즘의 이론적인 부분은 Notion 활용
+#### 👉 이론은 <a href="https://geunu97-1.notion.site/geunu97-1/with-Python-0355d1fba4f74ea89122a71f1bad7ebc">Notion</a>
