@@ -1,5 +1,5 @@
 #LV2 방금그곡
-
+'''
 def replace_(str):    #replace사용하기
     str = str.replace('C#','c')
     str = str.replace('D#','d')
@@ -48,14 +48,46 @@ def solution(m, musicinfos):
     else:
         answer = sorted(answer, key = lambda x: (-x[0]))      #시간 내림차순 정렬
         return answer[0][1]
-
+'''
 
 
 #Point
 # replace 사용하기
-# #이 들어간 것을 모두 똑같이 한자리 문자로 다르게 바꿔줘야댐 //   그렇게 안하면 길이 등 조건 맞추기 아주 까다로움     
+# #이 들어간 것을 모두 똑같이 한자리 문자로 바꿔줘야댐 // 그렇게 안하면 길이 등 조건 맞추기 아주 까다로움     
 
 
 
-#어려웠던 문제!!!
-#노트에 꼭 써놓기!!! 
+#2번째 풀이
+def solution(m, musicinfos):
+    m = m.replace("C#","c").replace("D#","d").replace("F#","f").replace("G#","g").replace("A#","a")
+    
+    count = 0
+    answer = []
+    for i in musicinfos:
+        i = i.split(',')
+        i[3] = i[3].replace("C#","c").replace("D#","d").replace("F#","f").replace("G#","g").replace("A#","a")
+        time = ((int(i[1][:2])-int(i[0][:2]))*60) + (int(i[1][3:5])-int(i[0][3:5]))   #시간 차, 분 단위
+        
+        melody = ""
+        index = 0
+        while True:
+            if index == len(i[3]):
+                index = 0
+            
+            if len(melody) == time:
+                break
+            
+            melody += i[3][index]
+            index += 1
+        
+        if m in melody:   #리스트말고 문자열로 해야, 해당 문자열이 포함되어 있는지 in사용해서 구할 수 있다
+            answer.append([time,count,i[2]])
+        
+        count += 1
+    
+    
+    if len(answer) == 0:
+        return "(None)"
+    
+    answer = sorted(answer, key=lambda x: (-x[0],x[1]))
+    return answer[0][2]
