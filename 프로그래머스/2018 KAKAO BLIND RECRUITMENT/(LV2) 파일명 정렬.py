@@ -1,5 +1,5 @@
 #LV2 파일명 정렬
-
+'''
 def solution(files):
     list_a = []
     
@@ -28,4 +28,35 @@ def solution(files):
     for i in list_a:
         answer.append(i[0])
 
+    return answer
+'''
+
+#2번째 풀이
+def solution(files):
+    index = 0
+    result = []
+    for i in files:
+        head = ""
+        number = ""
+        tail = ""
+        
+        for j in i:
+            if len(number) > 0 and j.isdigit() == False:
+                break
+            
+            elif j.isdigit() == False:
+                head += j
+                
+            elif j.isdigit() and len(number) <= 5:
+                number += j
+            
+        tail = i[len(head)+len(number):]
+        result.append([head.upper(),int(number),tail,i,index])
+        index += 1
+    
+    result = sorted(result, key=lambda x: (x[0],x[1],x[4]))
+    answer = []
+    for i in result:
+        answer.append(i[3])
+        
     return answer
