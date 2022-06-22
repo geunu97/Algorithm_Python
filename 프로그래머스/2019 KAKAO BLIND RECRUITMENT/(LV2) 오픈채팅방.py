@@ -1,5 +1,5 @@
 #LV2 오픈채팅방
-
+'''
 def solution(record):
     result = []
     dictionary = {}
@@ -22,7 +22,32 @@ def solution(record):
     
     
     return answer
+'''
 
 
-#Point
-#딕셔너리 이용(해쉬 문제)
+#2번째 풀이
+def solution(record):
+    dictionary = {}
+    result = []
+    for i in record:
+        i = i.split(' ')
+        
+        if i[0] == 'Enter':
+            dictionary[i[1]] = i[2]
+            result.append([i[1],"님이 들어왔습니다."])    
+            
+        elif i[0] == 'Leave':
+            result.append([i[1],"님이 나갔습니다."])
+    
+        elif i[0] == 'Change':
+            dictionary[i[1]] = i[2]
+    
+    
+    answer = []
+    for i in result:
+        answer.append(dictionary[i[0]] + i[1])
+    
+    return answer
+
+
+#딕셔너리
