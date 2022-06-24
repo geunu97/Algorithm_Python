@@ -1,5 +1,5 @@
 #LV1 신규아이디 추천
-
+'''
 def solution(new_id):
     #1단계
     new_id = new_id.lower()                #특수문자도 포함되어있는상태에서도 상관없음, 특수문자는 변화없음
@@ -62,6 +62,50 @@ def solution(new_id):
         
     return answer
 
-
 #Point
 #기본적인 문자열문제
+'''
+
+#2번째 풀이
+def solution(new_id):
+    #1단계
+    new_id = new_id.lower()
+    
+    #2단계
+    new_id2 = ""
+    for i in new_id:
+        if i.isalnum() or i == '-' or i == '_' or i == '.':
+            new_id2 += i
+    
+    #3단계
+    new_id_stack = []
+    for i in new_id2:
+        if len(new_id_stack) > 0 and new_id_stack[-1] == '.' and i == '.':
+            continue
+        else:
+            new_id_stack.append(i)
+    
+    #4단계
+    if len(new_id_stack) > 0 and new_id_stack[0] == '.':
+        new_id_stack.pop(0)
+    if len(new_id_stack) > 0 and new_id_stack[-1] == '.':
+        new_id_stack.pop()
+    
+    #5단계
+    if len(new_id_stack) == 0:
+        new_id_stack = ['a']
+    
+    #6단계
+    if len(new_id_stack) >= 16:
+        new_id_stack = new_id_stack[:15]
+        if new_id_stack[-1] == '.':
+            new_id_stack = new_id_stack[:-1]
+    
+    #7단계
+    if len(new_id_stack) <= 2:
+        while True:
+            new_id_stack.append(new_id_stack[-1])
+            if len(new_id_stack) == 3:
+                break
+    
+    return "".join(new_id_stack)
