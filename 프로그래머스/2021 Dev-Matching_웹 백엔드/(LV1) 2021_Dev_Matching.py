@@ -1,5 +1,5 @@
 #LV1 로또의 최고 순위와 최저 순위
-
+'''
 def solution(lottos, win_nums):
     count = 0
     zero_count = 0
@@ -44,5 +44,35 @@ def solution(lottos, win_nums):
 
 
 solution([44, 1, 0, 0, 31, 25],[31, 10, 45, 1, 6, 19])
+'''
 
+
+#2번째 풀이
+def solution(lottos, win_nums):
+    yes = 0 
+    zero = 0
+    for i in lottos:
+        if i == 0:
+            zero += 1
+        else:
+            if i in win_nums:
+                yes += 1
+
+    answer = []
+    result = [yes+zero,yes]
+    for res in result:
+        if res == 6:
+            answer.append(1)
+        elif res == 5:
+            answer.append(2)
+        elif res == 4:
+            answer.append(3)
+        elif res == 3:
+            answer.append(4)
+        elif res == 2:
+            answer.append(5)
+        else:
+            answer.append(6)
+    
+    return answer
      
