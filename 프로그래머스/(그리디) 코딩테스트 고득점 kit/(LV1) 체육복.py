@@ -18,3 +18,34 @@ def solution(n, lost, reserve):
 
                 
     return n - len(lost)
+
+#2번쨰 풀이
+def solution(n, lost, reserve):
+    student = [0] * n
+    
+    for i in lost:
+        student[i-1] += -1
+    
+    for i in reserve:
+        student[i-1] += 1
+
+    for i in range(len(student)):
+        if student[i] == -1:
+            if i == 0:
+                if student[i+1] == 1:
+                    student[i+1] = 0
+                    student[i] = 0
+            elif i == len(student)-1:
+                if student[i-1] == 1:
+                    student[i-1] = 0
+                    student[i] = 0
+            else:
+                if student[i-1] == 1:
+                    student[i-1] = 0
+                    student[i] = 0
+                elif student[i+1] == 1:
+                    student[i+1] = 0
+                    student[i] = 0
+    
+    
+    return len(student) - student.count(-1)
