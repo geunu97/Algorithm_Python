@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 이벤트 버블링 문제 -->
+<!-- 
+<body id="body" onclick="alert(`상위요소`)">
+  <button id="button" onclick="alert('클릭')">클릭해 주세요.</button>
+</body> 
+-->
+
+<body id="body" onclick="alert(`상위요소`)">
+  <button id="button" onclick="alert('클릭')">클릭해 주세요.</button>
+
+<script>
+  document.querySelector('#button').addEventListener("click",(e) => {
+    //e.stopPropagation();
+  })
+</script>
+
+</body>
+
+
+<!-- 이벤트 위임 -->
+<!--
+<body id="body">
+  <button id="button">클릭해 주세요.</button>
+
+  <script>
+    document.addEventListener("click",(e) => {
+      if (e.target.id === 'button') alert('클릭');
+      else if(e.target.id === 'body') alert('상위요소');
+    })
+  </script>
+
+</body>
+-->
+
+
+
+</html> 
+
+
+
+
+<!--
+# https://ko.javascript.info/bubbling-and-capturing
+# https://joshua1988.github.io/web-development/javascript/event-propagation-delegation/
+-->
